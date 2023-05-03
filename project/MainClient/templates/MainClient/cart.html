@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+header {
+    position: relative;
+    height: 17vh;
+    font-size: xxx-large;
+    border-bottom: 0px solid #eee;
+    text-align: center;
+    background-color: cornflowerblue;
+    color: black;
+    
+  }
+  .cart-items {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .cart-item {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 4px black;
+  }
+  .go-back-button {
+    position: absolute;
+    bottom: 10% ;
+    left: 45%;
+    transform: translate(-50%, 50%);
+    font-size: medium;
+  }
+  .go-back-profile {
+    position: absolute;
+    bottom: 10% ;
+    left: 55%;
+    transform: translate(-50%, 50%);
+    font-size: medium;
+  }
+  .alert{
+    font-size: medium;
+    color: red;
+
+  }
+  
+</style>
+<header>Your Cart
+  <a class="go-back-button" href="{% url 'MainClient:items' %}">
+    Go back to items
+</a>
+<a  class="go-back-profile" href="{% url 'MainClient:customerprofile' user.id %}">
+ Profile {{user.username}}
+</a>
+</header>
+<body>
+  <h2>Cart</h2>
+  <ul class="cart-items">
+    
+    {% for cart_item in cart_items %}
+    
+      <li li class="cart-item">
+        <img width="150px" height="200px" src="{{ cart_item.item.image.url }}" alt="{{ cart_item.item.title }}">
+        <p>{{ cart_item.item.title }}: {{ cart_item.quantity }} x ${{ cart_item.item.price }}</p>
+        <form action="{% url 'MainClient:remove_from_cart' cart_item.item.slug %}" method="post">
+          {% csrf_token %}
+          <input type="submit" value="Remove from cart">
+        </form>
+      </li>
+    {% endfor %}
+  </ul><br>
+  {% if messages %}
+  {% for message in messages %}
+    <div class="alert ">
+      {{ message }}
+    </div>
+  {% endfor %}
+{% endif %}
+
+  <p>Total price: ${{ total_price }}</p>
+  
+
+  <form action="{% url 'MainClient:create_order' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Order now">
+  </form>
+</body>
+</html>

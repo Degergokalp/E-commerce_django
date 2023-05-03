@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/formstyle.css' %}">
+        <title>My Wallet</title>
+      </head>
+      <style>
+        label {
+    font-size: large;
+  }
+        input{
+          width: 50%;
+
+  }
+      </style>
+     
+    <body>
+        <header>
+            <h1>My Wallet</h1>
+        </header>
+        <main>
+            <section>
+              <fieldset>
+                <form action="{% url 'MainClient:loginPage' %}" method="POST" class="form" name="form">{% csrf_token %}
+                  <h3>NewLogin</h3>
+                  <ul class="noBullet">
+                    
+                      <label for="username">please enter your user name</label>
+                      <input type="text" class="inputFields"  name="username" placeholder="username" value=""  required/>
+                    
+                      <label for="balance">please enter your password</label>
+                      <input type="password" class="inputFields" name="password" placeholder=""  required/>
+                    
+                   
+                    
+                    
+                     
+                    
+                      <input type="submit" id="submit_btn" name="submit" alt="Join" value="Submit">
+                   
+                  </ul>
+                </form>
+                </fieldset>
+            </section>
+          </main>
+    </body>
+</html>

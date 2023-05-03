@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        html {
+            font-size: 62.5%;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: #eee;
+            background-color: #7545f8;
+        }
+
+        /* LAYOUT */
+        header {
+            position: relative;
+            height: 15vh;
+            font-size: xxx-large;
+            border-bottom: 5px solid #eee;
+            text-align: center;
+        }
+
+        main {
+            height: 65vh;
+            color: #eee;
+            font-size: x-large;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        img {
+            align-self: center;
+            margin-left: 80px;
+        }
+
+        fieldset {
+            width: 500px;
+            height: 700px;
+            border-color: rgb(3, 3, 3);
+            border-radius: 40px;
+            border-width: 2px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(39, 38, 38);
+            margin-top: 150px;
+        }
+
+        p {
+            justify-content: center;
+            text-align: center;
+        }
+
+        span {
+            text-align: center;
+            margin-left: 50px;
+        }
+
+        button {
+            background-color: rgb(244, 246, 250);
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 30px;
+            width: 250px;
+            margin-top: 10px;
+            margin-left: 15px;
+            transition-duration: 0.4s;
+        }
+
+        button:hover {
+            background-color: rgb(102, 151, 243);
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 30px;
+            width: 250px;
+            margin-left: 15px;
+            margin-top: 10px;
+        }
+    </style>
+    <title>Item Details</title>
+</head>
+
+<body>
+    <header>
+        <h1>Item Details</h1>
+    </header>
+    <main>
+        <fieldset>
+            <section>
+                <p style="font-size: xxx-large;">{{ items.title }}</p>
+                <p>      </p><img width="250px" height="250px" src="{{ items.image.url }}" alt="{{ items.title }}"><br>
+                <span>{{items.description}}</span><br>
+                <p>{{ items.price }}</p><br><br>
+                
+
+                <a style="color: white;" href="{% url 'MainClient:add_to_cart' items.slug %}" class="btn btn-primary btn-md my-0 p">
+                    Add to cart
+                    <i class="fas fa-shopping-cart ml-1"></i>
+                  </a>
+                     
+                  
+                
+            </section>
+        </fieldset>
+    </main>
+</body>
+
+</html>

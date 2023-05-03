@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        html {
+            font-size: 62.5%;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: #eee;
+            background-color: #3a1e86;
+        }
+
+        /* LAYOUT */
+        header {
+            position: relative;
+            height: 15vh;
+            font-size: xxx-large;
+            border-bottom: 2px solid #eee;
+            text-align: center;
+            justify-content: center;
+        }
+
+        main {
+            height: 65vh;
+            color: #eee;
+            font-size: xx-large;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        fieldset {
+            width: 820px;
+            height: 500px;
+            border-color: rgb(3, 3, 3);
+            border-radius: 40px;
+            border-width: 2px;
+            color: rgb(0, 0, 0);
+            display: flex;
+            align-items: center;
+            background-color: rgb(45, 100, 202);
+        }
+
+        strong {
+            font-size: xxx-large;
+        }
+
+        section {
+            margin-left: 20px;
+        }
+        .cart {
+    position: absolute;
+    bottom: 15% ;
+    left: 90%;
+    transform: translate(-50%, 50%);
+    font-size: medium;
+    color: #eee;
+    font-size: xx-large;
+    border: solid 2px;
+  }
+
+  .itemspage {
+    position: absolute;
+    bottom: 15% ;
+    left: 80%;
+    transform: translate(-50%, 50%);
+    font-size: medium;
+    color: #eee;
+    font-size: xx-large;
+    border: solid 2px;
+  }
+
+    </style>
+     {% if user.is_authenticated %}
+    <title>Profile Page</title>
+</head>
+
+<body>
+    <header>
+        <h1>{{ user.get_username }}'Profile Page</h1>
+        <a class='cart' href="{% url 'MainClient:cart'  %}">Cart</a><br>
+        <a class='itemspage' href="{% url 'MainClient:items'  %}">Go back to items</a><br>
+    </header>
+    
+    <main style="float: left; margin-left: 100px;">
+        
+        <fieldset>
+            
+            <section>
+                <strong>Kullanici ismi:</strong>
+                <p>{{ user.get_username }}</p><br>
+                <strong>{{user.wallet.name}}</strong>
+                <p>the balance {{ user.wallet.balance }} TL</p>
+                <strong>Adres</strong>
+                <p>{{ user.address.title }}</p>
+                <p>{{ user.address.street }}</p>
+                
+                
+                <a href="{% url 'MainClient:walletupdate' user.wallet.slug %}" class="ml-2">edit your wallet</a><br>
+                <a href="{% url 'MainClient:addressupdate' user.address.slug %}">edit your address</a>
+            </section>
+        </fieldset>
+    </main>
+    <main style="float: right; margin-right: 100px;">
+        <fieldset>
+            <section>
+                
+                <strong>the previous orders</strong><br>
+                <a href="{% url 'MainClient:previousorder' %}">goes to previous orders</a>
+        
+
+
+            </section>
+        </fieldset>
+        {%endif%}
+    </main>
+</body>
+
+</html>

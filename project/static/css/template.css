@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  
+  body {
+    color: #eee;
+    background-color: #60b347;
+  }
+  
+  /* LAYOUT */
+  header {
+    position: relative;
+    height: 15vh;
+    font-size: xxx-large;
+    border-bottom: 5px solid #eee;
+    text-align: center;
+  }
+  
+  main {
+    height: 65vh;
+    color: #eee;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }

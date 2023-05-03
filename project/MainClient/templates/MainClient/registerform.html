@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/formstyle.css' %}">
+        <title>My Wallet</title>
+      </head>
+      <style>
+
+form {
+    font-size: 25px;
+    text-align: center;
+  }
+  div.mt-4 {
+    font-size: medium;
+}
+      </style>
+    <body>
+        <header>
+            <h1>My Wallet</h1>
+        </header>
+        <main>
+            <section>
+              <fieldset>
+                <form method="POST" action="">
+                  {% csrf_token %}
+                  <div class="input-group mb-3">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <label for="username">please enter your name</label>
+                      {{form.username}}
+                  </div>
+                  <div class="input-group mb-2">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-envelope-square"></i></span>
+                      </div>
+                      <label for="username">please enter your email</label>
+                      {{form.email}}
+                  </div>
+                  <div class="input-group mb-2">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      <label for="username">please enter your password</label>
+                      {{form.password1}}
+                  </div>
+                  <div class="input-group mb-2">
+                      <div class="input-group-append">
+                          <span class="input-group-text"><i class="fas fa-key"></i></span>
+                      </div>
+                      <label for="username">please enter your password again</label>
+                      {{form.password2}}
+                  </div>
+
+
+
+                     <div class="d-flex justify-content-center mt-3 login_container">
+                       <input class="btn login_btn" type="submit" value="Register Account">
+                     </div>
+
+              </form>
+          </div>
+
+          {{form.errors}}
+          
+          <div class="mt-4">
+              <div class="d-flex justify-content-center links">
+                  Already have an account? <a href="{% url 'MainClient:loginPage' %}" class="ml-2">Login</a>
+              </div>
+              </div>
+                </fieldset>
+            </section>
+          </main>
+    </body>
+</html>

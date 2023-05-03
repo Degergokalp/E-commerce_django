@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+        <title>Main Page</title>
+      </head>
+    <body>
+        <header>
+            <h1 style="text-align: center;">Welcome</h1>
+            
+        </header>
+        <main>
+            <section>
+                <a href="{% url 'MainClient:loginPage' %}">
+                    <button class="item" style="float: right;">Please login here</button>
+                </a>
+            </section>
+            <section>
+                
+                <a href="{% url 'MainClient:register.new' %}">
+                    <button class="wallet">Registration</button>
+                    <p>If you dont have an account you can register from here</p>
+                </a>
+            </section>
+          </main>
+    </body>
+</html>

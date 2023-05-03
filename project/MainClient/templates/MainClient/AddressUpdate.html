@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+  }
+
+  html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+  }
+  
+  body {
+    color: #eee;
+    background-color: #3a1e86;
+  }
+  
+  /* LAYOUT */
+  header {
+    position: relative;
+    height: 15vh;
+    font-size: xxx-large;
+    border-bottom: 5px solid #eee;
+    text-align: center;
+  }
+  
+  main {
+    height: 65vh;
+    color: #eee;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  form {
+    font-size: 25px;
+    text-align: center;
+  }
+  fieldset {
+    width: 500px;
+    height: 700px;
+    border-color: rgb(3, 3, 3);
+    border-radius: 40px;
+    border-width: 4px;
+    color:white;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    background-color: rgb(45, 100, 202);
+    margin-top: 100px;
+  }
+  input {
+    width: 100%;
+    padding: 5px 6px;
+    margin: 20px 0;
+    border-radius: 15px;
+    size: 40px;
+  }
+  label {
+    font-size: large;
+  }
+  
+
+    </style>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        
+        <title>My Wallet</title>
+      </head>
+    <body>
+        <header>
+            <h1>Address</h1><br>
+            
+        </header>
+        <main>
+            <section>
+              <fieldset>
+                <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address Informations</title>
+</head>
+<body>
+    <form action="{% url 'MainClient:addressupdate' address.slug %}" >{% csrf_token %}
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title"><br>
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city"><br>
+        <label for="street">Street:</label><br>
+        <input type="text" id="street" name="street"><br>
+        <label for="zipcode">Zip Code:</label><br>
+        <input type="text" id="zipcode" name="zipcode"><br>
+        <label for="apartment_no">Apartment Number:</label><br>
+        <input type="text" id="apartment_no" name="apartment_no"><br>
+        <label for="daire">Daire:</label><br>
+        <input type="text" id="daire" name="daire"><br><br>
+        <input type="submit" value="Submit">
+      </form> 
+      
+    
+</body>
+</html>
+                </fieldset>
+            </section>
+          </main>
+    </body>
+</html>

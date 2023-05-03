@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item list page</title>
+</head>
+<style>
+    .item {
+        display: inline-block;
+        border: solid 4px rgb(141, 14, 14);
+        width: 250px;
+        height: 320px;
+        margin: 10px;
+        text-align: center;
+        
+    }
+    header {
+    position: relative;
+    height: 15vh;
+    font-size: xxx-large;
+    border-bottom: 5px solid #eee;
+    text-align: center;
+    background-color: cornflowerblue;
+    color: black;
+  }
+  .go-back-button {
+    position: absolute;
+    bottom: 10% ;
+    left: 45%;
+    transform: translate(-50%, 50%);
+    font-size: medium;
+  }
+  .go-back-profile {
+    position: absolute;
+    bottom: 10% ;
+    left: 55%;
+    transform: translate(-50%, 50%);
+    font-size: medium;
+  }
+  
+</style>
+<header>Items
+    <a class="go-back-button" href="{% url 'MainClient:cart' %}">
+        Cart
+    </a>
+    <a  class="go-back-profile" href="{% url 'MainClient:customerprofile' user.id %}">
+     Profile {{user.username}}
+    </a>
+</header>
+<body>
+    
+    <div class="grid">
+{% for item in object_list %}
+
+
+<div class='item'>
+    <img width="150px" height="200px" src="{{ item.image.url }}" alt="{{ item.title }}">
+    <p >{{ item.title }} </p>
+    <p>{{ item.price }}TL</p>
+    <a href="{% url 'MainClient:itemdetail' item.slug %}">details</a><br>
+    <br>
+    <form class="d-flex justify-content-left">
+        
+        
+</div>
+{% endfor %}
+</div>
+
+
+
+
+</body>
+
+</html>

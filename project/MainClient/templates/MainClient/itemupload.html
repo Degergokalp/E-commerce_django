@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color: rgb(187, 57, 57);">Item upload</title>
+</head>
+<body>
+    <form action="{% url 'MainClient:itemupload'  %}" method="POST" class="itemform" name="itemupload">{% csrf_token %}
+        <h3>Uploading page form for items</h3>
+        <ul class="noBullet">
+          <li>
+            <label for="title">title</label>
+            <input type="text" class="inputFields"  name="title" placeholder="title of the item" value=""  required/>
+          </li>
+          <li>
+            <label for="price">price</label>
+            <input type="number" class="inputFields" name="price" placeholder="price" value=""  required/>
+          </li>
+          <li>
+            <label for="description">description</label>
+            <input type="text" class="inputFields" name="description" placeholder="description" value=""  required/>
+          </li>
+          <li>
+                <label for="image">image</label>
+                <input type='file' class="inputFields" name="image" value=""  required/>
+
+          </li>
+           <li id="center-btn">
+            <input type="submit" id="submit_btn" name="submit" alt="Join" value="Submit">
+          </li>
+        </ul>
+      </form> 
+</body>
+</html>

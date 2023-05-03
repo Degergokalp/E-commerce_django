@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/formstyle.css' %}">
+        <title>My Wallet</title>
+      </head>
+    <body>
+        <header>
+            <h1>My Wallet</h1><br>
+            <h3>edit your wallet</h3><br>
+        </header>
+        <main>
+            <section>
+              <fieldset>
+                <form action="{% url 'MainClient:walletupdate' wallet.slug %}" method="POST" class="form" name="form">{% csrf_token %}
+                  
+                  <ul class="noBullet">
+                    <br>
+                      <label for="name" style="font-size: medium;">please enter the name of your wallet</label>
+                      <input type="text" class="inputFields"  name="name" placeholder="name" value=""  required/><br>
+                
+                    
+                      <label for="balance" style="font-size: medium;">Enter the balance: </label><br>
+                      <input type="number" class="inputFields" name="balance" placeholder="balance ""  required/> 
+                    
+                    
+                    
+                     
+                   
+                      <input type="submit" id="submit_btn" name="submit" alt="Join" value="Submit">
+                    
+                  </ul>
+                </form>
+                </fieldset>
+            </section>
+          </main>
+    </body>
+</html>
