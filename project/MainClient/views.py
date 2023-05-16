@@ -229,6 +229,8 @@ def previous_orders_view(request):
         context['orders'].append({'order': order, 'total_price': total_price})
     return render(request, 'MainClient/previous_orders.html', context)
 
+def checkout(ItemDetailView):
+    pass
 
 
 

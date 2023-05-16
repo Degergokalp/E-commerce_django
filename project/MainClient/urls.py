@@ -22,7 +22,8 @@ urlpatterns=[
         path('create_order/', views.create_order, name='create_order'),
         path('logout',views.logout_view,name='logout'),
         path('previousorder',views.previous_orders_view,name='previousorder'),
-        path('graphql', GraphQLView.as_view(graphiql=True))
+        path('graphql', GraphQLView.as_view(graphiql=True)),
+        path("checkout")
         
 
 
